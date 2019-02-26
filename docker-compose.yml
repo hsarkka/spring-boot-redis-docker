@@ -3,8 +3,10 @@ services:
 
   redis:
     build: ./docker/redis
+    ports:
+      - "6379"
 
   backend:
     build: ./docker/backend
     ports:
-      - 8080:8080
+      - "8080:8080"

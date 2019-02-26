@@ -5,7 +5,7 @@ docker volume create --name gradle-cache
 echo
 
 echo "Running Gradle in container..."
-docker run --rm --volume gradle-cache:/home/gradle/.gradle --volume "$PWD/backend":/home/gradle/project -w /home/gradle/project gradle:5.2-jdk8-alpine gradle build
+docker run --rm --volume gradle-cache:/home/gradle/.gradle --volume "$PWD/backend":/home/gradle/project -w /home/gradle/project gradle:5.2-jdk8-alpine gradle clean build
 echo
 
 BUILD_OUTPUT=backend/build/libs/demo-0.0.1-SNAPSHOT.jar
