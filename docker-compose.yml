@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+
+  redis:
+    build: ./docker/redis
+
+  backend:
+    build: ./docker/backend
+    ports:
+      - 8080:8080
