@@ -5,6 +5,15 @@ This is a small demo project of *building and running* a Spring Boot application
 additional services in Docker containers. It should be relatively easy to adapt the
 structure to other similar architectures.
 
+Firstly, the `build-backend.sh` script uses the [official Docker image for Gradle](https://hub.docker.com/_/gradle) to
+build the backend code.
+
+The development runtime environment is built using [Docker Compose](https://docs.docker.com/compose/).
+The multi-container setup runs the following containers:
+
+* Backend container using the [official Docker image for OpenJDK](https://hub.docker.com/_/openjdk)
+* Redis container using the [official Docker image for Redis](https://hub.docker.com/_/redis)
+
 
 Requirements
 ------------
@@ -21,13 +30,13 @@ First build the backend:
 
 Build containers and run:
 
-    docker-compose up --build
+    docker-compose up
 
 Verify that the app answers at <http://localhost:8080/users/123>.
 
 
-Other Useful Docker commands
-----------------------------
+Running in the Background
+-------------------------
 
 Start detached:
 
@@ -39,7 +48,7 @@ List containers:
 
 Run Redis CLI:
 
-    docker exec -it spring-docker_redis_1 redis-cli
+    docker exec -it spring-boot-redis-docker_redis_1 redis-cli
 
 Stop containers:
 
