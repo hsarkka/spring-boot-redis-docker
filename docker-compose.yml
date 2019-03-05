@@ -1,12 +1,19 @@
 version: '3.7'
 services:
 
+  backend:
+    depends_on:
+      - redis
+    image: openjdk:8
+    ports:
+      - "8080:8080"
+    volumes:
+      - type: bind
+        source: "./backend/build/libs"
+        target: "/app"
+    entrypoint: ["java", "-jar", "/app/demo-0.0.1-SNAPSHOT.jar"]
+
   redis:
     build: ./docker/redis
     ports:
       - "6379"
-
-  backend:
-    build: ./docker/backend
-    ports:
-      - "8080:8080"
