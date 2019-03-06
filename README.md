@@ -1,18 +1,18 @@
 Demo: Spring Boot - Redis - Docker
 ==================================
 
-This is a small demo project of *building and running* a Spring Boot application with some 
+This is a small demo project of *building and running* a Spring Boot application and some 
 additional services in Docker containers. It should be relatively easy to adapt the
 structure to other similar architectures.
 
-Firstly, the `build-backend.sh` script uses the [official Docker image for Gradle](https://hub.docker.com/_/gradle) to
-build the backend code.
+1. *Build environment:*  The `build-backend.sh` script uses the [official Docker image for Gradle](https://hub.docker.com/_/gradle) 
+to build the backend code.
 
-The development runtime environment is built using [Docker Compose](https://docs.docker.com/compose/).
+2. *Development runtime environment:* Built using [Docker Compose](https://docs.docker.com/compose/).
 The multi-container setup runs the following containers:
-
-* Backend container using the [official Docker image for OpenJDK](https://hub.docker.com/_/openjdk)
-* Redis container using the [official Docker image for Redis](https://hub.docker.com/_/redis)
+    * Backend container using the [official Docker image for OpenJDK](https://hub.docker.com/_/openjdk).
+      Exposes the port `8080` to the host.
+    * Redis container using the [official Docker image for Redis](https://hub.docker.com/_/redis)
 
 
 Requirements
