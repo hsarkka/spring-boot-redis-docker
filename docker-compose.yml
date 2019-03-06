@@ -11,9 +11,10 @@ services:
       - type: bind
         source: "./backend/build/libs"
         target: "/app"
+        read_only: true
     entrypoint: ["java", "-jar", "/app/demo-0.0.1-SNAPSHOT.jar"]
 
   redis:
     build: ./docker/redis
-    ports:
+    expose:
       - "6379"
